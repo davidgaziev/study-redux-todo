@@ -1,0 +1,16 @@
+.filter-todo {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+
+  background-color: hsl(235, 24%, 19%);
+
+  color: hsl(234, 11%, 52%);
+  & button {
+    font-weight: 700;
+  }
+}

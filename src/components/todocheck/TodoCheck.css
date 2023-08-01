@@ -1,0 +1,18 @@
+.todo-check {
+  width: 30px;
+  height: 30px;
+  border: 1px solid;
+  border-color: hsl(233, 14%, 35%);
+  border-radius: 100%;
+
+  & img {
+    transform: translate(0%, 25%);
+  }
+  &:hover {
+    border-color:  hsl(234, 39%, 85%);
+  }
+}
+
+.todo-check:has(> button > img) {
+  background: linear-gradient( to right bottom,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}

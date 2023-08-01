@@ -1,0 +1,14 @@
+input {
+  flex-grow: 1;
+
+  font-size: 14px;
+  background: none;
+  outline: none;
+  color: hsl(234, 39%, 85%);
+
+  font-weight: 400;
+}
+
+input::placeholder {
+  color: hsl(234, 11%, 52%);
+}

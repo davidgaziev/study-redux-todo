@@ -1,0 +1,25 @@
+li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  padding: 1rem;
+
+  &.item {
+    border-bottom: 1px solid hsl(233, 14%, 35%);
+  }
+
+  .todo-content {
+    text-align: left;
+    flex-grow: 1;
+    line-height: normal;
+  }
+}
+
+
+.item.completed {
+  .todo-content {
+    text-decoration: line-through;
+    color: hsl(234, 11%, 52%);
+  }
+}

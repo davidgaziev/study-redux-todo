@@ -1,0 +1,19 @@
+ul {
+  border-radius: .5rem;
+
+  list-style: none;
+  padding: 0;
+
+  background-color: hsl(235, 24%, 19%);
+}
+
+.list-footer {
+  display: flex;
+  justify-content: space-between;
+
+  color: hsl(233, 14%, 35%);
+  font-size: 0.75em;
+  & button:hover {
+    color: hsl(234, 39%, 85%);
+  }
+}
