@@ -4,55 +4,30 @@ import List from '../UI/list/List';
 import './Main.css';
 import TodoCheck from '../todocheck/TodoCheck';
 import FilterTodo from '../filtertodo/FilterTodo';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../store/todoSlice';
+import useFilter from '../hooks/useFilter';
 
 const Main = () => {
-  const [todos, setTodos] = useState([]);
   const [text, setText] = useState('');
   const [isCompleted, setIsCompleted] = useState(false);
   const [filter, setFilter] = useState(null);
+  const dispatch = useDispatch();
 
   const createTodo = () => {
-    setTodos([
-      ...todos,
-      {
-        id: Date.now(),
-        text,
-        isCompleted,
-      },
-    ]);
+    dispatch(addTodo({ text, isCompleted }));
     setText('');
     setIsCompleted(false);
   };
 
-  const removeCompleted = () => {
-    setTodos(todos.filter((t) => t.isCompleted !== true));
-  };
-
-  const removeTodo = (id) => {
-    setTodos(todos.filter((t) => t.id !== id));
-  };
-
-  const makeComplete = (post) => {
-    post.isCompleted ? (post.isCompleted = false) : (post.isCompleted = true);
-    setTodos([...todos]);
-  };
-
-  const getFilteredTodos = (filter) => {
-    if (filter === null) return todos;
-
-    return todos.filter((t) => t.isCompleted === filter);
-  };
-
-  const filteredTodos = getFilteredTodos(filter);
+  const todos = useFilter(filter);
 
   return (
     <main>
       <div className="create-todo">
         <TodoCheck
           isCompleted={isCompleted}
-          callback={() =>
-            isCompleted ? setIsCompleted(false) : setIsCompleted(true)
-          }
+          callback={() => setIsCompleted(!isCompleted)}
         />
         <Input
           value={text}
@@ -71,17 +46,8 @@ const Main = () => {
         )}
       </div>
 
-      {todos.length ? (
-        <>
-          <List
-            todos={filteredTodos}
-            removeTodo={removeTodo}
-            makeComplete={makeComplete}
-            removeCompleted={removeCompleted}
-          />
-          <FilterTodo filter={filter} setFilter={setFilter} />
-        </>
-      ) : null}
+      <List todos={todos} />
+      <FilterTodo filter={filter} setFilter={setFilter} />
     </main>
   );
 };
