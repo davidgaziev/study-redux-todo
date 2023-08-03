@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import TodoCheck from '../../todocheck/TodoCheck';
 import './Item.css';
 import { makeComplete, removeTodo } from '../../../store/todoSlice';
+import crossSVG from '../../../static/icons/icon-cross.svg';
 
 const Item = ({ children, todo }) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Item = ({ children, todo }) => {
       />
       <div className="todo-content">{children}</div>
       <button onClick={() => dispatch(removeTodo({ id: todo.id }))}>
-        <img src="src/assets/icons/icon-cross.svg" alt="" />
+        <img src={crossSVG} alt="" />
       </button>
     </li>
   );

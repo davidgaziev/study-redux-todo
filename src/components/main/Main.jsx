@@ -7,6 +7,7 @@ import FilterTodo from '../filtertodo/FilterTodo';
 import { useDispatch } from 'react-redux';
 import { addTodo } from '../../store/todoSlice';
 import useFilter from '../hooks/useFilter';
+import crossSVG from '../../static/icons/icon-cross.svg';
 
 const Main = () => {
   const [text, setText] = useState('');
@@ -37,11 +38,7 @@ const Main = () => {
         />
         {text && (
           <button onClick={() => createTodo()}>
-            <img
-              style={{ transform: 'rotate(45deg)' }}
-              src="src/assets/icons/icon-cross.svg"
-              alt=""
-            />
+            <img style={{ transform: 'rotate(45deg)' }} src={crossSVG} alt="" />
           </button>
         )}
       </div>

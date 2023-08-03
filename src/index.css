@@ -38,7 +38,7 @@ body {
   min-width: 375px;
   min-height: 100vh;
 
-  background-image: url('src/assets/bg-mobile-dark.jpg');
+  background-image: url('src/static/bg-mobile-dark.jpg');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -71,6 +71,6 @@ button {
 
 @media screen and (min-width: 380px) {
   body {
-    background-image: url('src/assets/bg-desktop-dark.jpg');
+    background-image: url('src/static/bg-desktop-dark.jpg');
   }
 }
