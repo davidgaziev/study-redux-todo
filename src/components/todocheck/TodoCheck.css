@@ -11,7 +11,7 @@
     align-items: center;
   }
   &:hover {
-    border-color:  hsl(234, 39%, 85%);
+    border-color:hsl(234, 39%, 85%);
   }
 }
 

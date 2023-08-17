@@ -12,8 +12,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: hsl(234, 39%, 85%);
-  background-color: hsl(235, 21%, 11%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,7 +19,24 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  
+
+  --bg-color: hsl(235, 21%, 11%);
+  --main-color: hsl(235, 24%, 19%);
+  --secondary-text-color: hsl(233, 14%, 35%);
+  --main-text-color: hsl(234, 39%, 85%);
+  --border-bottom-color: hsl(233, 14%, 35%);
+  --bg-image-mobile: url('static/bg-mobile-dark.jpg');
+  --bg-image-desktop: url('static/bg-desktop-dark.jpg');
+}
+
+[theme="light"] {
+  --bg-color: #fafafa;
+  --main-color: hsl(0, 0%, 98%);
+  --secondary-text-color: hsl(233, 14%, 35%);
+  --main-text-color: hsl(235, 19%, 35%);
+  --border-bottom-color: hsl(236, 33%, 92%);
+  --bg-image-mobile: url('static/bg-mobile-light.jpg');
+  --bg-image-desktop: url('static/bg-desktop-light.jpg');
 }
 
 a {
@@ -34,13 +49,17 @@ a:hover {
 }
 
 body {
+  background-color: var(--bg-color);
+
   margin: 0;
   min-width: 375px;
   min-height: 100vh;
 
-  background-image: url('static/bg-mobile-dark.jpg');
+  background-image: var(--bg-image-mobile);
   background-repeat: no-repeat;
   background-size: contain;
+
+  color: var(--main-text-color);
 }
 
 h1 {
@@ -59,18 +78,8 @@ button {
 }
 
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color:  hsl(0, 0%, 98%);
-  }
-  a:hover {
-    color: #747bff;
-  }
-}
-
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 450px) {
   body {
-    background-image: url('static/bg-desktop-dark.jpg');
+    background-image: var(--bg-image-desktop)
   }
 }

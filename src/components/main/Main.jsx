@@ -42,8 +42,8 @@ const Main = () => {
           </button>
         )}
       </div>
-
       <List todos={todos} />
+
       <FilterTodo filter={filter} setFilter={setFilter} />
     </main>
   );
